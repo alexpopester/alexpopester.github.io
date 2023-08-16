@@ -1,6 +1,4 @@
 <script lang="ts">
-
-
     interface ExpItem {
         dates: string;
         description: string;

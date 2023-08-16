@@ -5,6 +5,7 @@
         </div>
     </header>
     <section class="p-4 flex flex-row gap-x-2">
+        <!--Loading Animation Placeholders-->
         <div class="grid grid-cols-4 w-5/6 gap-x-1 gap-y-0">
             <div class="placeholder animate-pulse col-span-2"></div>
             <div class="placeholder animate-pulse"></div>
