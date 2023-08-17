@@ -10,7 +10,8 @@
 	import {SvelteComponentTyped, onMount} from "svelte"
 
 	let box : SvelteComponentTyped 
-	let yTop = 0
+	let yTop : number | undefined = 0
+	let yMax : number | undefined = 0 
 	let value = {current: yTop, max: 10}
 	function openDrawer() {
 		const drawerSettings : DrawerSettings = {
@@ -26,8 +27,15 @@
 
 
 	function parseScroll(){
-		yTop = box.scrollTop	
-		console.log(box)
+		yTop = document.getElementById("page")?.scrollTop	
+		yMax = document.getElementById("page")?.scrollHeight	
+		if (yTop && yMax){
+			console.log("max", (yMax))
+			console.log("top", (yTop))
+			let result = Math.round((yTop * 1.50) / Math.round(yMax / 10))
+			console.log("fill", result)
+			value.current= result
+		}
 	}
 
 	onMount(()=>parseScroll())
@@ -37,7 +45,7 @@
 	<p>Hello Skeleton</p>
 </Drawer>
 <!-- App Shell -->
-<AppShell bind:this={box} on:scroll={parseScroll}>
+<AppShell id="page" bind:this={box} on:scroll={parseScroll}>
 	<svelte:fragment slot="header">
 		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 		<svelte:fragment slot="lead">
