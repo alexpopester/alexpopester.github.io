@@ -2,6 +2,7 @@
 	import About from "./about.svelte";
 	import Experience from "./experience.svelte";
 	import Skills from "./skills.svelte";
+	import Contact from "./contact.svelte";
 </script>
 <div class="container h-screen mx-auto flex justify-center items-center">
 		<div class="flex justify-center flex-col space-x-2">
@@ -19,3 +20,4 @@
 <About/>
 <Experience/>
 <Skills/>
+<Contact/>

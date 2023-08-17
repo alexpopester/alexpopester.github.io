@@ -1,5 +1,5 @@
 <script>
-    import ExpTable from "./expTable.svelte";
+    import ExpTable from "./tables/expTable.svelte";
 </script>
 <div class="card card-hover mx-12 my-10">
     <header class="card-header">

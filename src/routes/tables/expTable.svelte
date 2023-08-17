@@ -16,9 +16,9 @@
         expTree.push(expItem);
     }
 
-    addExpItem("Fall 2022", "Coached fellow students in cs classes", "USU");
-    addExpItem("Spring 2023", "Frontend and Backend development on Angular, C#, Docker, and Kubernetes Software stack", "SDL");
     addExpItem("Summer 2023", "Developed linux driver, cross platform applications, and raspberry pi kernel modifications", "Biomerics");
+    addExpItem("Spring 2023", "Frontend and Backend development on Angular, C#, Docker, and Kubernetes Software stack", "SDL");
+    addExpItem("Fall 2022", "Coached fellow students in cs classes", "USU");
 
 </script>
 <div class="flex">
