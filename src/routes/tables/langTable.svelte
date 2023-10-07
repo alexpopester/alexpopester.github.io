@@ -17,7 +17,7 @@ function addcodeLang(lang : string, years : string, projects : string){
 }
 
 addcodeLang("Python", "2", "Qt Raspberry Pi Auto-Camera Tester, California Earthquake Scientific Visualizations");
-addcodeLang("Javascript", "1.5", "Sveltekit/Tauri Cross Platform Python Method Creator, Angular Frontend, Vanilla Js Dalle-2 choose your own adventure with AI images, Personal Portfolio Website");
+addcodeLang("Javascript", "1.5", "Sveltekit/Tauri Cross Platform Python Method Creator, Angular Frontend, more");
 addcodeLang("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie Race Game");
 
 </script>
@@ -42,11 +42,6 @@ addcodeLang("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie R
 				</tr>
 			{/each}
 		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="3">That's all folks!</th>
-			</tr>
-		</tfoot>
 	</table>
 </div>
 </div>

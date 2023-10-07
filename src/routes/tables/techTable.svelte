@@ -16,9 +16,9 @@ function addtechExp(skill : string, years : string, description : string){
     techExpTree.push(techExp);
 }
 
-addtechExp("Python", "2", "Qt Raspberry Pi Auto-Camera Tester, California Earthquake Scientific Visualizations");
-addtechExp("Javascript", "1.5", "Sveltekit/Tauri Cross Platform Python Method Creator, Angular Frontend, Vanilla Js Dalle-2 choose your own adventure with AI images, Personal Portfolio Website");
-addtechExp("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie Race Game");
+addtechExp("Linux", "2", "Arch and Debian based Linux experience, Customized Linux kernel on a Raspberry Pi");
+addtechExp("Docker", "1", "Created Python Docker container that needed to integrate into a C# backend in a Kubernetes cluster, Created docker build for cross platform application");
+addtechExp("Extras", "~", "Kubernetes, AWS services, MySQL, Sveltekit, more...");
 
 </script>
 <div class="flex">
@@ -42,11 +42,6 @@ addtechExp("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie Ra
 				</tr>
 			{/each}
 		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="3">That's all folks!</th>
-			</tr>
-		</tfoot>
 	</table>
 </div>
 </div>

@@ -17,7 +17,9 @@
 			</h1>
 		</div>
 </div>
+<div class="flex flex-wrap justify-center items-center">
 <About/>
 <Experience/>
 <Skills/>
 <Contact/>
+</div>

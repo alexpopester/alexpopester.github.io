@@ -25,7 +25,7 @@
 <!-- Responsive Container (recommended) -->
 <div class="table-container">
 	<!-- Native Table Element -->
-	<table class="table table-hover">
+	<table class="table table-hover text-wrap">
 		<thead>
 			<tr>
 				<th>Dates</th>
@@ -42,11 +42,6 @@
 				</tr>
 			{/each}
 		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="3">That's all folks!</th>
-			</tr>
-		</tfoot>
 	</table>
 </div>
 </div>

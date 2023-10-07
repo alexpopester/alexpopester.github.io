@@ -5,7 +5,7 @@
     import TechTable from "./tables/techTable.svelte";
     import MiscSkillTable from "./tables/miscSkillTable.svelte";
 </script>
-<div class="card card-hover mx-12 my-1">
+<div class="card card-hover mx-12 my-12 max-w-3xl min-w-1/2">
     <header class="card-header">
         <div class="p-4 text-center font-mono text-4xl">
             Skills
@@ -13,7 +13,7 @@
     </header>
     <section class="p-4 flex flex-row gap-x-2">
         <Accordion autocollapse>
-            <AccordionItem>
+            <AccordionItem open>
                 <svelte:fragment slot="lead">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
@@ -47,9 +47,8 @@
                 </svelte:fragment>
             </AccordionItem>
         </Accordion>
+        <!--
         <Avatar src="" width="w-32" rounded="rounded-3xl" />
+        -->
     </section>
-    <footer class="card-footer content-center">
-        <div class="card variant-ghost-surface text-center w-1/5 ">Cool</div>
-    </footer>
 </div>

@@ -16,9 +16,9 @@ function addMiscSkill(skill : string, years : string, description : string){
     MiscSkillTree.push(MiscSkill);
 }
 
-addMiscSkill("Scrum", "2", "Qt Raspberry Pi Auto-Camera Tester, California Earthquake Scientific Visualizations");
-addMiscSkill("Customer Relations", "1.5", "Sveltekit/Tauri Cross Platform Python Method Creator, Angular Frontend, Vanilla Js Dalle-2 choose your own adventure with AI images, Personal Portfolio Website");
-addMiscSkill("Spanish", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie Race Game");
+addMiscSkill("Scrum", "2", "Participated in dailystand ups, code reviews, project progress reports and more");
+addMiscSkill("Customer Relations", "1.5", "Developed frontend of application directly with customer, learned to explain technical ideas in a simple clear format");
+addMiscSkill("Spanish", "2", "Practiced speaking with native speakers for 2 years");
 
 </script>
 <div class="flex">
@@ -42,11 +42,6 @@ addMiscSkill("Spanish", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie
 				</tr>
 			{/each}
 		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="3">That's all folks!</th>
-			</tr>
-		</tfoot>
 	</table>
 </div>
 </div>
