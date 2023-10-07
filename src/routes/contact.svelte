@@ -4,7 +4,7 @@
     const phone: string = '801-548-1672';
 </script>
 <div class="card card-hover mx-12 my-12 max-w-3xl min-w-1/2">
-    <header class="card-header">
+    <header class="card-header" id="Contact">
         <div class="p-4 text-center font-mono text-4xl">
             Contact
         </div>
