@@ -1,17 +1,17 @@
 <script lang='ts'>
-    import { Avatar } from "@skeletonlabs/skeleton";
     import {Accordion, AccordionItem} from '@skeletonlabs/skeleton';
     import LangTable from "./tables/langTable.svelte";
     import TechTable from "./tables/techTable.svelte";
     import MiscSkillTable from "./tables/miscSkillTable.svelte";
+    import {screenWidth} from "./stores";
 </script>
-<div class="card card-hover mx-12 my-12 max-w-3xl min-w-1/2">
+<div class="card card-hover mx-2 my-12 max-w-3xl w-10/12 lg:w-7/12">
     <header class="card-header" id="Skills">
         <div class="p-4 text-center font-mono text-4xl">
             Skills
         </div>
     </header>
-    <section class="p-4 flex flex-row gap-x-2">
+    <section class="p-4 flex flex-row gap-x-2 w-200">
         <Accordion autocollapse>
             <AccordionItem open>
                 <svelte:fragment slot="lead">

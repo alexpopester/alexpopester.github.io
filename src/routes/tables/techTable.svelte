@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { screenWidth } from "../stores";
+
     interface TechExp {
         skill: string;
         years: string;
@@ -29,7 +31,9 @@ addtechExp("Extras", "~", "Kubernetes, AWS services, MySQL, Sveltekit, more...")
 		<thead>
 			<tr>
 				<th>skill</th>
+				{#if $screenWidth > 735}
 				<th>description</th>
+				{/if}
 				<th>Years</th>
 			</tr>
 		</thead>
@@ -37,7 +41,9 @@ addtechExp("Extras", "~", "Kubernetes, AWS services, MySQL, Sveltekit, more...")
 			{#each techExpTree as row, i}
 				<tr>
 					<td>{row.skill}</td>
+					{#if $screenWidth > 735}
 					<td>{row.description}</td>
+					{/if}
 					<td>{row.years}</td>
 				</tr>
 			{/each}

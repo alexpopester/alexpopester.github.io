@@ -1,4 +1,5 @@
 <script lang="ts">
+import {screenWidth} from "../stores"
 interface codeLang {
     lang: string;
     years: string;
@@ -29,7 +30,9 @@ addcodeLang("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie R
 		<thead>
 			<tr>
 				<th>Lang</th>
-				<th>Projects</th>
+					{#if $screenWidth > 735}
+					<th>Projects</th>
+					{/if}
 				<th>Years</th>
 			</tr>
 		</thead>
@@ -37,8 +40,11 @@ addcodeLang("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie R
 			{#each codeTree as row, i}
 				<tr>
 					<td>{row.lang}</td>
+					{#if $screenWidth > 735}
 					<td>{row.projects}</td>
+					{/if}
 					<td>{row.years}</td>
+
 				</tr>
 			{/each}
 		</tbody>

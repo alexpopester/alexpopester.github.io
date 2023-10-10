@@ -48,12 +48,12 @@ function carouselThumbnail(index: number) {
 }
 </script>
 
-{#if $screenWidth>=865}
+{#if $screenWidth>=740}
 <div class="flex">
 <!-- Responsive Container (recommended) -->
-<div class="table-container">
+<div class="table-container table-comfortable text-wrap">
 	<!-- Native Table Element -->
-	<table class="table table-hover text-wrap">
+	<table class="table table-hover ">
 		<thead>
 			<tr>
 				<th>Dates</th>
@@ -63,7 +63,7 @@ function carouselThumbnail(index: number) {
 		</thead>
 		<tbody>
 			{#each expTree as row, i}
-				<tr >
+				<tr class="table-cell-fit" >
 					<td>{row.dates}</td>
 					<td>{row.where}</td>
 					<td class="text-wrap">{row.description}</td>
@@ -74,7 +74,7 @@ function carouselThumbnail(index: number) {
 </div>
 </div>
 {/if}
-{#if $screenWidth<865}
+{#if $screenWidth<740}
 		{#each expTree as row, i}
 			<div class="card card-hover {gradient[i]} h-80 mx-5 my-2">
 				<header class="card-header">
@@ -88,28 +88,4 @@ function carouselThumbnail(index: number) {
 				</section>
 			</div>
 		{/each}
-<!--
-<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
-	- Button: Left 
-	<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
-		<i class="fa-solid fa-arrow-left" />
-	</button>
-	Full Description 
-	<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
-		{#each expTree as row, i}
-			<div class="card card-hover {gradient[i]} h-80 mx-5 my-2">
-				<header class="card-header">
-					<div class="p-4 text-center font-mono text-3xl">
-					{row.where} 
-					</div>
-					<h5 class="p-4 text-center font-mono text-2xl">{row.dates}</h5>
-				</header>
-				<section class="p-4 gap-x-2">
-					<p>{row.description}</p>
-				</section>
-			</div>
-		{/each}
-	</div>
-</div>
--->
 {/if}

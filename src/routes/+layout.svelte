@@ -6,7 +6,7 @@
 	// Most of your app wide CSS should be put in this file
 	import {Ratings, Table} from '@skeletonlabs/skeleton';
 	import '../app.postcss';
-	import { AppShell, AppBar, Drawer, drawerStore, LightSwitch, type DrawerSettings} from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Toast, Drawer, drawerStore, LightSwitch, type DrawerSettings} from '@skeletonlabs/skeleton';
 	import {SvelteComponentTyped, onMount} from "svelte"
 	import {screenWidth} from "./stores";
 
@@ -23,7 +23,7 @@
 			id: 'drawer',
 			bgDrawer: 'bg-slate-300 text-black',
 			bgBackdrop: '',
-			width: 'w-[280px] md:w-[480px] h-[175px]',
+			width: 'w-[280px] md:w-[480px] h-1/4 md:h-1/4',
 			padding: 'p-4',
 			rounded: 'rounded-xl',
 		}
@@ -57,6 +57,7 @@
         link.download = fileName;
         link.click();
     }
+
 	onMount(()=>parseScroll());
 </script>
 <svelte:window bind:innerWidth={screenSize}/>
@@ -90,6 +91,7 @@
 		</ul>
 	</nav>
 </Drawer>
+<Toast />
 <!-- App Shell -->
 <AppShell id="page" bind:this={box} on:scroll={parseScroll}>
 	<svelte:fragment slot="header">

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { screenWidth } from "../stores";
+
     interface MiscSkill {
         skill: string;
         years: string;
@@ -17,7 +19,7 @@ function addMiscSkill(skill : string, years : string, description : string){
 }
 
 addMiscSkill("Scrum", "2", "Participated in dailystand ups, code reviews, project progress reports and more");
-addMiscSkill("Customer Relations", "1.5", "Developed frontend of application directly with customer, learned to explain technical ideas in a simple clear format");
+addMiscSkill("Client relations", "1.5", "Developed frontend of application directly with customer, learned to explain technical ideas in a simple clear format");
 addMiscSkill("Spanish", "2", "Practiced speaking with native speakers for 2 years");
 
 </script>
@@ -29,7 +31,9 @@ addMiscSkill("Spanish", "2", "Practiced speaking with native speakers for 2 year
 		<thead>
 			<tr>
 				<th>skill</th>
+				{#if $screenWidth > 735}
 				<th>description</th>
+				{/if}
 				<th>Years</th>
 			</tr>
 		</thead>
@@ -37,7 +41,9 @@ addMiscSkill("Spanish", "2", "Practiced speaking with native speakers for 2 year
 			{#each MiscSkillTree as row, i}
 				<tr>
 					<td>{row.skill}</td>
+					{#if $screenWidth > 735}
 					<td>{row.description}</td>
+					{/if}
 					<td>{row.years}</td>
 				</tr>
 			{/each}
