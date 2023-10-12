@@ -183,7 +183,7 @@ let whichProj = selectionScreen;
             Compiled findings into paper and presented infront of my peers.
                 </div>
                 <div class="w-full p-2">
-                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="earthquake.jpg" alt="Pi with Hat"/>
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="earthquake.png" alt="earthquake visualization"/>
                 </div>
                     <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
                         Return
@@ -219,7 +219,7 @@ let whichProj = selectionScreen;
             Used internal database to manage the highscores of each level.
                 </div>
                 <div class="w-full p-2">
-                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="movieproj2.jpg" alt="Pi with Hat"/>
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="movieproj2.png" alt="movie project"/>
                 </div>
                     <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
                         Return
@@ -259,7 +259,7 @@ let whichProj = selectionScreen;
             desktop if I wish to read the article.
                 </div>
                 <div class="w-full p-2">
-                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="i3.jpg" alt="Pi with Hat"/>
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="i3.png" alt="i3 bar stuff"/>
                 </div>
                     <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
                         Return
