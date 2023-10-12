@@ -100,53 +100,63 @@
 			class="bg-surface-100-800-token w-full items-center"	
 		>
 		<TabAnchor on:click={()=>$visible=words} selected={$visible===words}>
-			<div class="grid grid-cols-3 gap-4">
+			<div class="{$screenWidth >= 550 ? "grid grid-cols-3" : ""} gap-4">
 				<div class="flex items-center justify-center col-start-2">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
 				</div>
+				{#if $screenWidth >= 550}
 				<div class="flex items-center justify-center col-span-3">
 					<span class="">Home</span>
 				</div>
+				{/if}
 			</div>
 		</TabAnchor>
 		<TabAnchor on:click={()=>$visible=about} selected={$visible===about}>
-			<div class="grid grid-cols-3 gap-4">
+			<div class="{$screenWidth >= 550 ? "grid grid-cols-3" : ""} gap-4">
 				<div class="flex items-center justify-center col-start-2">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>		
 				</div>
+				{#if $screenWidth >= 550}
 				<div class="flex items-center justify-center col-span-3">
 					<span>About</span>
 				</div>
+				{/if}
 			</div>
 		</TabAnchor>
 		<TabAnchor on:click={()=>$visible=projects} selected={$visible===projects}>
-			<div class="grid grid-cols-3 gap-4">
+			<div class="{$screenWidth >= 550 ? "grid grid-cols-3" : ""} gap-4">
 				<div class="flex items-center justify-center col-start-2">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 320H256c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32zM192 32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v128c0 17.67 14.33 32 32 32h95.72l73.16 128.04C211.98 300.98 232.4 288 256 288h.28L192 175.51V128h224V64H192V32zM608 0H480c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32z"/></svg>
 				</div>
+				{#if $screenWidth >= 550}
 				<div class="flex items-center justify-center col-span-3">
 					<span>Projects</span>
 				</div>
+				{/if}
 			</div>
 		</TabAnchor>
 		<TabAnchor on:click={()=>$visible=skills} selected={$visible===skills}>
-			<div class="grid grid-cols-3 gap-4">
+			<div class="{$screenWidth >= 550 ? "grid grid-cols-3" : ""} gap-4">
 				<div class="flex items-center justify-center col-start-2">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9zm-103.9 82l-56.7-56.7L18.7 402.8c-25 25-25 65.5 0 90.5s65.5 25 90.5 0l123.6-123.6c-7.6-19.9-9.9-41.6-5-62.7zM64 472c-13.2 0-24-10.8-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.2-10.7 24-24 24z"/></svg>
 				</div>
+				{#if $screenWidth >= 550}
 				<div class="flex items-center justify-center col-span-3">
 					<span>Skills</span>
 				</div>
+				{/if}
 			</div>
 		</TabAnchor>
 		<TabAnchor on:click={()=>$visible=contact} selected={$visible===contact}>
-			<div class="grid grid-cols-3 gap-4">
+			<div class="{$screenWidth >= 550 ? "grid grid-cols-3" : ""} gap-4">
 				<div class="flex items-center justify-center col-start-2">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
 				</div>
+				{#if $screenWidth >= 550}
 				<div class="flex items-center justify-center col-span-3">
 					<span>Contact</span>
 				</div>
+				{/if}
 			</div>
 		</TabAnchor>
 		</TabGroup>	

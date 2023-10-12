@@ -19,7 +19,7 @@ function addcodeLang(lang : string, years : string, projects : string){
 
 addcodeLang("Python", "2", "Qt Raspberry Pi Auto-Camera Tester, California Earthquake Scientific Visualizations");
 addcodeLang("Javascript", "1.5", "Sveltekit/Tauri Cross Platform Python Method Creator, Angular Frontend, more");
-addcodeLang("Extras", "~", "C# .Net Backend, Rust Tauri Backend, Android Movie Race Game");
+addcodeLang("C#", "1", ".Net Backend");
 
 </script>
 <div class="flex">

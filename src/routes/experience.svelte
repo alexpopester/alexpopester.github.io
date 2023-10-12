@@ -1,5 +1,6 @@
 <script>
-    import {slide} from "svelte/transition"
+import {slide} from "svelte/transition";
+import {screenWidth} from "./stores";
 const selectionScreen = 0;
 const cameraDriver = 1;
 const autoTester = 2;
@@ -11,9 +12,9 @@ const methodCreator = 6;
 const Titles = [
     "Projects",
     "Linux Camera Driver",
-    "Camera Auto-Tester App",
+    "Camera Tester",
     "Movie Race Game",
-    "Earthquake Visualization",
+    "Earthquake Analysis",
     "I3 Cyclic News Bar",
     "Method Creator"
 ]
@@ -28,7 +29,7 @@ let whichProj = selectionScreen;
     </header>
 
     {#if whichProj === selectionScreen}
-    <section class="p-4 grid grid-cols-3 gap-4">
+    <section class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="grid gap-4">
             <span class="chip variant-ghost-warning hover:variant-filled"on:keypress={()=>whichProj=cameraDriver} on:click={()=>whichProj=cameraDriver}>
                     <span>
@@ -40,13 +41,13 @@ let whichProj = selectionScreen;
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
                     </span>
-                    <span>Camera Auto-Tester</span>
+                    <span>Camera Tester</span>
                 </span>
         </div>
         <div class="grid gap-4">
             <span class="chip variant-ghost-tertiary hover:variant-filled" on:click={()=>whichProj=earthquake} on:keypress={()=>whichProj=earthquake}>
                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c.2 35.5-28.5 64.3-64 64.3H326.4L288 448l80.8-67.3c7.8-6.5 7.6-18.6-.4-24.9L250.6 263.2c-14.6-11.5-33.8 7-22.8 22L288 368l-85.5 71.2c-6.1 5-7.5 13.8-3.5 20.5L230.4 512H128.1c-35.3 0-64-28.7-64-64V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L416 100.7V64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V185l52.8 46.4c8 7 12 15 11 24z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c.2 35.5-28.5 64.3-64 64.3H326.4L288 448l80.8-67.3c7.8-6.5 7.6-18.6-.4-24.9L250.6 263.2c-14.6-11.5-33.8 7-22.8 22L288 368l-85.5 71.2c-6.1 5-7.5 13.8-3.5 20.5L230.4 512H128.1c-35.3 0-64-28.7-64-64V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L416 100.7V64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V185l52.8 46.4c8 7 12 15 11 24z"/></svg>
                     </span>
                     <span>Earthquake Visualization</span>
                 </span>
@@ -75,106 +76,232 @@ let whichProj = selectionScreen;
     </section>
         {/if}
         {#if whichProj === cameraDriver}
-        <section class="grid grid-cols-3" in:slide>
-        <div class="col-span-2 p-4">
-            Developed a Linux camera driver for a proprietary scope camera. 
-            Camera driver was adapted from the OV5647 camera driver.
-            Consulted with camera hardware specifications to correctly implement the driver.
-            Installed the driver onto a Raspberry Pi 4 as well as modified kernel functionality to allow
-            for complete control over camera functionality. 
-        </div>
-        <div class="w-56 p-2">
-            <img class="shadow rounded max-w-full h-auto align-middle border-none" src="camera.jpg" alt="Scope Camera"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-20">
+                <img class="shadow rounded max-w-full h-auto border-none" src="camera.jpg" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
+                Created a multi-threaded PyQt camera auto-tester application.
+                Integrated this application to control gpio pins connected to a HAT for the Raspberry Pi.
+                Built application to run customized linux kernel commands to test low level hardware
+                functionality of camera and increase each level tests until the camera stream would be displayed.
+                Raspberry Pi image was modified to boot into a kiosk mode with the application opening on boot.
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
+                    Developed a Linux camera driver for a proprietary scope camera. 
+                    Camera driver was adapted from the OV5647 camera driver.
+                    Consulted with camera hardware specifications to correctly implement the driver.
+                    Installed the driver onto a Raspberry Pi 4 as well as modified kernel functionality to allow
+                    for complete control over camera functionality. 
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="camera.jpg" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
         {#if whichProj === autoTester}
-        <section class="grid grid-cols-3" in:slide>
-        <div class="col-span-2 p-4">
-            Created a multi-threaded PyQt camera auto-tester application.
-            Integrated this application to control gpio pins connected to a HAT for the Raspberry Pi.
-            Built application to run customized linux kernel commands to test low level hardware
-            functionality of camera and increase each level tests until the camera stream would be displayed.
-            Raspberry Pi image was modified to boot into a kiosk mode with the application opening on boot.
-        </div>
-        <div class="w-full p-2">
-            <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="rpiHat.jpg" alt="Pi with Hat"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-20">
+                <img class="shadow rounded max-w-full h-auto border-none" src="rpiHat.jpg" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
+                Created a multi-threaded PyQt camera auto-tester application.
+                Integrated this application to control gpio pins connected to a HAT for the Raspberry Pi.
+                Built application to run customized linux kernel commands to test low level hardware
+                functionality of camera and increase each level tests until the camera stream would be displayed.
+                Raspberry Pi image was modified to boot into a kiosk mode with the application opening on boot.
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
+                    Created a multi-threaded PyQt camera auto-tester application.
+                    Integrated this application to control gpio pins connected to a HAT for the Raspberry Pi.
+                    Built application to run customized linux kernel commands to test low level hardware
+                    functionality of camera and increase each level tests until the camera stream would be displayed.
+                    Raspberry Pi image was modified to boot into a kiosk mode with the application opening on boot.
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="rpiHat.jpg" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
         {#if whichProj === earthquake}
-        <section class="grid grid-cols-3" in:slide>
-        <div class="col-span-2 p-4">
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-20">
+                <img class="shadow rounded max-w-full h-auto border-none" src="earthquake.png" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
             Created scientific visualizations of 800Gb earthquake data set. 
             Used Pyvista, Paraview, Numpy, Pandas, and more to create a compelling visualization answering key questions 
             related to earthquake movement and intensity. 
             Utilized techniques such as slice planes, iso surfaces, and streaklines
             to understand large data set.
             Compiled findings into paper and presented infront of my peers.
-        </div>
-        <div class="w-full p-2">
-            <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="earthquake.png" alt="Earthquake visualization"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
+            Created scientific visualizations of 800Gb earthquake data set. 
+            Used Pyvista, Paraview, Numpy, Pandas, and more to create a compelling visualization answering key questions 
+            related to earthquake movement and intensity. 
+            Utilized techniques such as slice planes, iso surfaces, and streaklines
+            to understand large data set.
+            Compiled findings into paper and presented infront of my peers.
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="earthquake.jpg" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
         {#if whichProj === movieRace}
-        <section class="grid grid-cols-3 items-center" in:slide>
-        <div class="col-span-2 p-4">
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-20">
+                <img class="shadow rounded max-w-full h-auto border-none" src="movieproj1.png" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
             Developed a speed game on Android trying to connect from one actor/movie to another through all of their connected movies and peers.
             Utilized a free movie API to retrieve both movie and actor information.
             Leveraged the chain of movies and actors to create an internal data structure measuring speed, moves, and history.
             Used internal database to manage the highscores of each level.
-        </div>
-        <div class="w-full p-2">
-            <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="movieproj2.png" alt="Earthquake visualization"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
+            Developed a speed game on Android trying to connect from one actor/movie to another through all of their connected movies and peers.
+            Utilized a free movie API to retrieve both movie and actor information.
+            Leveraged the chain of movies and actors to create an internal data structure measuring speed, moves, and history.
+            Used internal database to manage the highscores of each level.
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="movieproj2.jpg" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
         {#if whichProj === i3News}
-        <section class="grid grid-cols-3" in:slide>
-        <div class="col-span-2 p-4">
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-12">
+                <img class="shadow rounded max-w-full h-auto border-none" src="i3p2.png" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
+            Was not satisfied with the I3 bar options availble out of the box 
+            and wanted easy news source.
+            Developed I3Bar script that uses the HackerNews API to retrieve the top 50 most popular articles at the time.
+            Created a queue written to a file to store those news articles and pop off a new article every 20 seconds to display on the bar.
+            Implemented bash script to read from the article most recently popped off and provide a clickable link from my
+            desktop if I wish to read the article.
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
             Was not satisfied with the I3 bar options availble out of the box 
             and was looking for a better way to stay productive but still read the interesting articles available about tech.
             Developed I3Bar script that uses the HackerNews API to retrieve the top 50 most popular articles at the time.
             Created a queue written to a file to store those news articles and pop off a new article every 20 seconds to display on the bar.
             Implemented simple bash script to read from the article most recently popped off and provide a clickable link from my
             desktop if I wish to read the article.
-        </div>
-        <div class="w-full p-2">
-            <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="i3.png" alt="i3NewsBar"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="i3.jpg" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
         {#if whichProj === methodCreator}
-        <section class="grid grid-cols-3" in:slide>
-        <div class="col-span-2 p-4">
+            {#if $screenWidth < 500}
+            <section class="h-3/4 grid grid-rows-12 content-center">
+            <div class="row-span-4 flex items-center mx-10">
+                <img class="shadow rounded max-w-full h-auto border-none" src="crossapplicationproj2.png" alt="Alex Pope"/>
+            </div>
+            <div class="row-span-3 p-1 text-center text-md">
+            Developed cross platform application to write gui made Python code then to be sent and 
+            run on a seperate machine. Used the Tauri framework to develop a frontend written in Javascript using Sveltekit and a 
+            backend written in Rust. Created dynamic and professional ui with directly customer and leveraged
+            Tauri messaging to communicate to the backend and write the Python scripts.
+            </div>
+            <div class="row-span-5 text-center">
+                <button type="button" class="row-span-5 mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                    Return
+                </button>
+            </div>
+            </section>
+            {/if}
+            {#if $screenWidth >= 500}
+                <section class="grid grid-cols-3" in:slide>
+                <div class="col-span-2 p-4">
             Developed cross platform application to write gui made Python code then to be sent and 
             run on a seperate machine. Used the Tauri framework to develop a frontend written in Javascript using Sveltekit and a 
             backend written in Rust. Created dynamic and professional ui with directly customer and leveraged
             Tauri messaging to communicate to the backend and write the Python scripts.
             Built application on Windows, Ubuntu, Raspberry Pi OS, and Arch Linux.
-        </div>
-        <div class="w-full p-2">
-            <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="crossapplicationproj1.png" alt="Method Creator"/>
-        </div>
-            <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
-                Return
-            </button>
-        </section>
+                </div>
+                <div class="w-full p-2">
+                    <img class="shadow rounded max-w-full h-auto align-bottom border-none" src="crossapplicationproj1.png" alt="Pi with Hat"/>
+                </div>
+                    <button type="button" class="mb-2 col-start-2 btn variant-glass-primary" on:click={()=>whichProj=0}> 
+                        Return
+                    </button>
+                </section>
+            {/if}
         {/if}
 </div>

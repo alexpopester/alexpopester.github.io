@@ -20,7 +20,7 @@ function addtechExp(skill : string, years : string, description : string){
 
 addtechExp("Linux", "2", "Arch and Debian based Linux experience, Customized Linux kernel on a Raspberry Pi");
 addtechExp("Docker", "1", "Created Python Docker container that needed to integrate into a C# backend in a Kubernetes cluster, Created docker build for cross platform application");
-addtechExp("Extras", "~", "Kubernetes, AWS services, MySQL, Sveltekit, more...");
+addtechExp("AWS", "0.5", "Certified and experienced with EC2, S3, RDS, more") 
 
 </script>
 <div class="flex">
