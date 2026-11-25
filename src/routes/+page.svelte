@@ -3,7 +3,7 @@
 		{ label: 'GitHub', href: 'https://github.com/alexpopester' },
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/alex-pope-b70151224/' },
 		{ label: 'Email', href: 'mailto:aspope3@gmail.com' },
-		{ label: 'Resume', href: '/resume.pdf' }
+		{ label: 'Resume', href: '/Alex-Pope-Resume.pdf' }
 	];
 
 	const projects = [
